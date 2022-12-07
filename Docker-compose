@@ -1,0 +1,10 @@
+version: ‘1.0’
+services:
+  app:
+	image: harbor.sflabs.com.br/processo/petshop:latest
+	container_name: petshop
+	ports:
+  	- 3000:3000
+
+
+
