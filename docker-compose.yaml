@@ -5,7 +5,8 @@ networks:
     driver: bridge
  
   #volumes:
-  #  grafana_vol: {}
+    #grafana_vol: {}
+    #prometheus_vol: {}
 
 services:
   app:
@@ -27,3 +28,25 @@ services:
     ports:
      - 4000:3000
     restart: on-failure
+
+  prometheus:
+    image: bitnami/prometheus:latest
+    container_name: prometheus
+    #volumes:
+    #  - ./prometheus/:/etc/prometheus/
+     # - prometheus_vol:/prometheus
+    networks:
+     - visio_net
+    ports:
+     - 9090:9090
+    restart: on-failure
+
+  node-exporter:
+    image: bitnami/node-exporter:latest
+    container_name: nodeexporter
+      ports:
+       - 9100:9100
+    networks:
+      - visio_net
+    restart: on-failure
+    
