@@ -2,26 +2,28 @@ version: '3.7'
 
 networks:
   visio_net:
-	driver: bridge
+    driver: bridge
  
-#volumes:
-#grafana_vol: {}
+  #volumes:
+  #  grafana_vol: {}
 
 services:
   app:
-	image: harbor.sflabs.com.br/processo/petshop:latest
-	container_name: petshop
-	ports:
-  	- 3000:3000
-	restart: on-failure
+    image: harbor.sflabs.com.br/processo/petshop:latest
+    container_name: petshop
+    networks:
+      - visio_net
+    ports:
+      - 3000:3000
+    restart: on-failure
     
   grafana:
-	image: grafana/grafana:9.3.1
-	container_name: grafana
-	networks:
-  	- visio_net
-	#volumes:
-  	#- grafana_vol:/var/lib/grafana
-	ports:
-  	- 4000:3000
-	restart: on-failure
+    image: grafana/grafana:9.3.1
+    container_name: grafana
+    networks:
+      - visio_net
+    #volumes:
+    #  - grafana_vol:/var/lib/grafana
+    ports:
+     - 4000:3000
+    restart: on-failure
