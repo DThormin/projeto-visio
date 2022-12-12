@@ -30,11 +30,12 @@ services:
     restart: on-failure
 
   prometheus:
-    image: bitnami/prometheus:latest
+    image: prom/prometheus:latest
     container_name: prometheus
     volumes:
-    
      - prometheus_vol:/prometheus
+     - ./prometheus/ :/etc/prometheus/
+    
     networks:
      - visio_net
     ports:
@@ -42,7 +43,7 @@ services:
     restart: on-failure
 
   node-exporter:
-    image: bitnami/node-exporter:latest
+    image: prom/node-exporter:latest
     container_name: nodeexporter
     ports:
      - 9100:9100
