@@ -34,9 +34,9 @@ services:
     container_name: prometheus
     volumes:
      - prometheus_vol:/prometheus
-     - ./prometheus/ :/etc/prometheus/
+     - ./prometheus/:/etc/prometheus/
     command:
-      - 'cp ./prometheus/prometheus.yml/ /etc/prometheus/prometheus.yml'    
+     - '--config.file=/etc/prometheus/prometheus.yml'    
       
     networks:
      - visio_net
