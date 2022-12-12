@@ -35,7 +35,8 @@ services:
     volumes:
      - prometheus_vol:/prometheus
      - ./prometheus/ :/etc/prometheus/
-    
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'    
     networks:
      - visio_net
     ports:
