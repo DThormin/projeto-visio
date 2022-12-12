@@ -8,6 +8,8 @@ scrape_configs:
     static_configs:
          - targets: ['localhost:9090']
          - targets: ['localhost:3000']
+         - targets: ['localhost:9100']
+         - targets: ['localhost:4000']
            labels:
              grupo: 'Prometheus'
     #metrics_path: /metrics
@@ -22,6 +24,8 @@ scrape_configs:
     metrics_path: /metrics
     static_configs:
      - targets: ['localhost:3000']
+     - targets: ['localhost:4000']
+     - targets: ['localhost:9100']
        labels:
          grupo: 'webapi'
   
