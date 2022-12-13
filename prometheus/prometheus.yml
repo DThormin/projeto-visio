@@ -2,6 +2,8 @@ global:
   scrape_interval: 20s
   scrape_timeout: 20s
       
+  external_labels:
+      monitor: 'Projeto-Visio'
 
 scrape_configs:
   - job_name: 'Prometheus'
@@ -25,12 +27,12 @@ scrape_configs:
        labels:
          grupo: 'webapi'
 
-  - job_name: 'node-exporter'
+#  - job_name: 'node-exporter'
 
-    scrape_interval: 30s
-    dns_sd_configs:
-    - names:
-      - 'tasks.node-exporter'
-      type: 'A'
-      port: 9100  
+#    scrape_interval: 30s
+#    dns_sd_configs:
+#    - names:
+#      - 'tasks.node-exporter'
+#      type: 'A'
+#      port: 9100  
   
