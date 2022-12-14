@@ -1,5 +1,5 @@
 [distros]
-34.122.246.82
+server1 ansible_host=34.122.246.82
 
 [distros:vars]
 ansible_user=tormin1
