@@ -1,0 +1,6 @@
+[distros]
+34.122.246.82
+
+[distros:vars]
+ansible_user=tormin1
+ansible_pasword=projetovisio1*
