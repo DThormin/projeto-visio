@@ -1,0 +1,8 @@
+- hosts: all
+  sudo: True
+  user: tormin1
+  tasks:
+    - name: "Atualiza pacotes"
+      shell: sudo apt-get update
+    - name: "Instala o docker"
+      shell: sudo apt-get install ca-certificates curl gnupg lsb-release
